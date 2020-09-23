@@ -12,7 +12,7 @@ struct Stack {
 void stack_init(struct Stack * s) {
     s->n = 0;
     s->size += 1;
-    s->a = malloc(s->size * sizeof(Data));
+    s->a = (Data*)malloc(s->size * sizeof(Data));
 }
 
 void stack_push(struct Stack * s, Data data) {
@@ -24,7 +24,7 @@ void stack_push(struct Stack * s, Data data) {
     s->a[s->n] = data;
     s->n ++;
 }
-struct Stack stack_new() {
+struct Stack stack_new(void) {
    struct Stack * s;
    s = malloc(sizeof(struct Stack));
    stack_init(s);
